@@ -43,7 +43,7 @@ export default function App() {
     return (
       <div>
         <form onSubmit={handleSubmit} className={styles.formContainer}>
-          <div className={styles.playerInputs}>
+          <div className={styles.playerInputsContainer}>
             <input onChange={handleChangeOne} value={inputValueOne} className={styles.playerInput} placeholder='Enter Player Name'/>
             <input onChange={handleChangeTwo} value={inputValueTwo} className={styles.playerInput} placeholder='Enter Player Name'/>
           </div>
