@@ -47,7 +47,7 @@ export default function App() {
             <input onChange={handleChangeOne} value={inputValueOne} className={styles.playerInput} placeholder='Enter Player Name'/>
             <input onChange={handleChangeTwo} value={inputValueTwo} className={styles.playerInput} placeholder='Enter Player Name'/>
           </div>
-          <button type='submit' className={styles.submitButton}></button>
+          <button type='submit' className={styles.submitButton}>Submit</button>
         </form>
       </div>
     )
@@ -71,7 +71,7 @@ export default function App() {
   }
 
   return (
-    <div className={[styles.container, styles.center].join(" ")}>
+    <div className={[styles.container].join(" ")}>
       <div className={styles.inputContainer}>
         {playersSet? showPlayers() : inputPlayers()}
       </div>

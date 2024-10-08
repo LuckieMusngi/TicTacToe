@@ -1,34 +1,33 @@
-/* Centers Div */
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Div that surrounds the whole  */
 .container {
+    background-color: lightcoral;
     display: flex;
     flex-direction: column;
-    align-items: space-between;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+
 }
 
 .formContainer {
+    background: lightblue;    
     display: flex;
     flex-direction: column;
-    width: 60%;
-    
+    align-items: center;
+    justify-content: center;
+    padding: 30px 100px;
+    height: 110px;
 }
 
 .inputContainer {
-    display: flex;
-    margin-top: 20px 40px;
 }
-
 .playerInputsContainer {
+    background: lightgreen;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: space-between;
+    padding: 20px;
+    width: 450px;
 }
 
 .playerBox {
@@ -49,6 +48,6 @@
 }
 
 .submitButton {
-    width: 100vh;
-    padding: 40px;
+    width: 100%;
+    padding: 15px 20px;
 }
