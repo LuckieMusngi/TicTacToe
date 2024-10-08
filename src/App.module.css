@@ -1,0 +1,54 @@
+/* Centers Div */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Div that surrounds the whole  */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    height: 100vh;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    
+}
+
+.inputContainer {
+    display: flex;
+    margin-top: 20px 40px;
+}
+
+.playerInputsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+}
+
+.playerBox {
+    display: flex;
+    width: 40%;
+    height: 250px;
+    padding: 150px 300px;
+}
+
+.boardContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: 'green';
+    height: 400px;
+    width: 400px;
+
+}
+
+.submitButton {
+    width: 100vh;
+    padding: 40px;
+}

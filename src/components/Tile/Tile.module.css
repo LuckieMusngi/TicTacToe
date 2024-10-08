@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 30%;
+    width: 30%;
+    padding: 40px;
+}
+
+.text {
+    font-size: 18;
+    font-weight: bolder;
+
+}
