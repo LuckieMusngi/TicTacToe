@@ -1,14 +1,15 @@
-class board {
+export default class board {
   constructor() {
     // this.board is ["", "", "",
     //                "", "", "",
     //                "", "", ""]
-    this.board = new Array(9).fill(" ");
+    // note that there is no nesting
+    this.boardArr = new Array(9).fill(":)");
   }
 
   getRow(index) {
     const rowIndex = index * 3;
-    return new Array(this.board[rowIndex], this.board[rowIndex + 1], this.board[rowIndex + 2]);
+    return new Array(this.boardArr[rowIndex], this.boardArr[rowIndex + 1], this.boardArr[rowIndex + 2]);
   }
 
   playMove(player, i) {
@@ -16,12 +17,12 @@ class board {
 
     } 
 
-    if (this.board[i] !== " ") {
+    if (this.boardArr[i] !== " ") {
         //* ERROR
         console.log("index is already occupied");
         return;
     }
-    this.board[i] = player;
+    this.boardArr[i] = player;
   }
 
   // returns 0 if no winner, 1 if player 1 wins and 2 if player 2 is winning
@@ -55,7 +56,7 @@ class board {
     for (const combination of winCombs) {
         let found = true;
         for (const i of combination) {
-            if (this.board[i] !== curPlayer) {
+            if (this.boardArr[i] !== curPlayer) {
                 found = false;
             }
         }
@@ -68,14 +69,6 @@ class board {
   }
 
   toString() {
-    return this.board.toString();
-  }
-
-  getBoard() {
-    return this.board;
-  }
-
-  getBoardHTML() {
-
+    return this.boardArr.toString();
   }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
 
+import board from "./components/Board/board";
+
 export default function App() {
   // State to manage the input value for Player One
   const [inputValueOne, setInputValueOne] = useState("");
@@ -11,13 +13,41 @@ export default function App() {
 
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
+  const game = new board();
+
+  const boardGUI = () => {
+    const boardArr = game.boardArr;
+
+    return (
+      <table className={styles.board}>
+        <thead>
+          <tr>
+            <th>{boardArr[0]}</th>
+            <th>{boardArr[1]}</th>
+            <th>{boardArr[2]}</th>
+          </tr>
+          <tr>
+            <th>{boardArr[3]}</th>
+            <th>{boardArr[4]}</th>
+            <th>{boardArr[5]}</th>
+          </tr>
+          <tr>
+            <th>{boardArr[6]}</th>
+            <th>{boardArr[7]}</th>
+            <th>{boardArr[8]}</th>
+          </tr>
+        </thead>
+      </table>
+    );
+  };
+
   const handlePlayTurn = (e) => {
     // Changes currentPlayer
     if (currentPlayer === 1) {
       setCurrentPlayer("O");
     } else {
       setCurrentPlayer("X");
-    };
+    }
   }; //! tile should call this ?
 
   // Handle change for Player One's input
@@ -44,44 +74,53 @@ export default function App() {
       <div>
         <form onSubmit={handleSubmit} className={styles.formContainer}>
           <div className={styles.playerInputsContainer}>
-            <input onChange={handleChangeOne} value={inputValueOne} className={styles.playerInput} placeholder='Enter Player Name'/>
-            <input onChange={handleChangeTwo} value={inputValueTwo} className={styles.playerInput} placeholder='Enter Player Name'/>
+            <input
+              onChange={handleChangeOne}
+              value={inputValueOne}
+              className={styles.playerInput}
+              placeholder="Enter Player Name"
+            />
+            <input
+              onChange={handleChangeTwo}
+              value={inputValueTwo}
+              className={styles.playerInput}
+              placeholder="Enter Player Name"
+            />
           </div>
-          <button type='submit' className={styles.submitButton}>Submit</button>
+          <button type="submit" className={styles.submitButton}>
+            Submit
+          </button>
         </form>
       </div>
-    )
-  }
+    );
+  };
 
-  const showCurrentPlayer = () => {
-    
-  }
+  const showCurrentPlayer = () => {};
 
   const showPlayers = () => {
     return (
       <div className={styles.showPlayerContainer}>
-          <div className={styles.xPlayer}>
-            <p>{inputValueOne}</p>
-          </div>
-          <div className={styles.oPlayer}>
-            <p>{inputValueTwo}</p>
-          </div>
+        <div className={styles.xPlayer}>
+          <p>{inputValueOne}</p>
+        </div>
+        <div className={styles.oPlayer}>
+          <p>{inputValueTwo}</p>
+        </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className={[styles.container].join(" ")}>
       <div className={styles.inputContainer}>
-        {playersSet? showPlayers() : inputPlayers()}
-      </div>
-      
-      <div className={styles.boardContainer}>
-        <p>Board</p>
+        {playersSet ? showPlayers() : inputPlayers()}
       </div>
 
+      <div className={styles.boardContainer}>
+        <div>{boardGUI()}</div>
+      </div>
 
       {showCurrentPlayer()}
     </div>
   );
-};
+}
