@@ -71,4 +71,28 @@ export default class board {
   toString() {
     return this.boardArr.toString();
   }
+  
+  boardGUI() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>{boardArr[0]}</th>
+            <th>{boardArr[1]}</th>
+            <th>{boardArr[2]}</th>
+          </tr>
+          <tr>
+            <th>{boardArr[3]}</th>
+            <th>{boardArr[4]}</th>
+            <th>{boardArr[5]}</th>
+          </tr>
+          <tr>
+            <th>{boardArr[6]}</th>
+            <th>{boardArr[7]}</th>
+            <th>{boardArr[8]}</th>
+          </tr>
+        </thead>
+      </table>
+    );
+  };
 }
