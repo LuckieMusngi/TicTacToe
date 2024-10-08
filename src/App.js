@@ -2,92 +2,75 @@ import React, { useState } from "react";
 import styles from "./App.module.css";
 
 export default function App() {
-  // State to manage the input value for Player One
   const [inputValueOne, setInputValueOne] = useState("Player One");
-  // State to manage the input value for Player Two
   const [inputValueTwo, setInputValueTwo] = useState("Player Two");
-  // State to manage if the players have been set
   const [playersSet, setPlayerSet] = useState(false);
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
-  const handlePlayTurn = (e) => {
-    // Changes currentPlayer
-    if (currentPlayer === 1) {
-      setCurrentPlayer("O");
-    } else {
-      setCurrentPlayer("X");
-    }
+  const handlePlayTurn = () => {
+    setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
   };
 
-  // Handle change for Player One's input
   const handleChangeOne = (e) => {
     setInputValueOne(e.target.value);
   };
 
-  // Handle change for Player Two's input
   const handleChangeTwo = (e) => {
     setInputValueTwo(e.target.value);
   };
 
-  // Handle form submission for Player One
   const handleSubmit = (e) => {
     if (inputValueOne !== "" && inputValueTwo !== "") {
       setPlayerSet(true);
     }
     e.preventDefault();
-    console.log(`Player One: ${inputValueOne}, PlayerTwo: ${inputValueTwo}`);
+    console.log(`Player One: ${inputValueOne}, Player Two: ${inputValueTwo}`);
   };
 
-  const inputPlayers = () => {
-    return (
-      <div>
-        <form onSubmit={handleSubmit} className={styles.formContainer}>
-          <div className={styles.playerInputsContainer}>
-            <input
-              onChange={handleChangeOne}
-              value={inputValueOne}
-              className={styles.playerInput}
-              placeholder="Enter Player Name"
-            />
-            <input
-              onChange={handleChangeTwo}
-              value={inputValueTwo}
-              className={styles.playerInput}
-              placeholder="Enter Player Name"
-            />
-          </div>
-          <button type="submit" className={styles.submitButton}>
-            Submit
-          </button>
-        </form>
-      </div>
-    );
-  };
-
-  const showCurrentPlayer = () => {
-    return (
-      <div className={styles.showPlayers}>
-        <div className={styles.players}>X</div>
-        <div className={styles.players}>O</div>
-      </div>
-    );
-  };
-
-  const showPlayers = () => {
-    return (
-      <div className={styles.showPlayerContainer}>
-        <div className={styles.xPlayer}>
-          <p>{inputValueOne}</p>
+  const inputPlayers = () => (
+    <div>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
+        <div className={styles.playerInputsContainer}>
+          <input
+            onChange={handleChangeOne}
+            value={inputValueOne}
+            className={styles.playerInput}
+            placeholder="Enter Player Name"
+          />
+          <input
+            onChange={handleChangeTwo}
+            value={inputValueTwo}
+            className={styles.playerInput}
+            placeholder="Enter Player Name"
+          />
         </div>
-        <div className={styles.oPlayer}>
-          <p>{inputValueTwo}</p>
-        </div>
+        <button type="submit" className={styles.submitButton}>
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+
+  const showCurrentPlayer = () => (
+    <div className={styles.showPlayers}>
+      <div className={`${styles.players} ${currentPlayer === "X" ? styles.activePlayer : ""}`}>X</div>
+      <div className={`${styles.players} ${currentPlayer === "O" ? styles.activePlayer : ""}`}>O</div>
+    </div>
+  );
+
+  const showPlayers = () => (
+    <div className={styles.showPlayerContainer}>
+      <div className={`${styles.xPlayer} ${currentPlayer === "X" ? styles.activePlayer : ""}`}>
+        <p>{inputValueOne}</p>
       </div>
-    );
-  };
+      <div className={`${styles.oPlayer} ${currentPlayer === "O" ? styles.activePlayer : ""}`}>
+        <p>{inputValueTwo}</p>
+      </div>
+    </div>
+  );
 
   return (
-    <div className={[styles.container]}>
+    <div className={styles.container}>
       <div className={styles.inputContainer}>
         {playersSet ? showPlayers() : inputPlayers()}
       </div>

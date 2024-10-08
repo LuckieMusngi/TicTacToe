@@ -102,6 +102,11 @@
     border-radius: 20px;
 }
 
+.players.activePlayer {
+    background-color: black;
+    color: white;
+}
+
 .showPlayers {
     display: flex;
     flex-direction: column;
