@@ -52,16 +52,16 @@
 .submitButton {
     width: 100%;
     padding: 2px 50px;
-    border-radius: 8px;
-    background-color: lightpink;
+    border-radius: 2px;
+    background-color: rgb(71, 180, 213);
     color: black;
     transition: background-color 0.3s ease;
-    border: 0.1px solid black;
+    border: 0.1px solid rgb(7, 136, 169);
 }
 
 .submitButton:hover {
     cursor: pointer;
-    background-color: lightcoral;
+    background-color: rgb(21, 105, 118);
 }
 
 .showPlayerContainer {
