@@ -100,4 +100,16 @@ export default class board {
       </table>
     );
   }
+
+  // otherBoardGUI() {
+  //   return (
+  //     <div className={style.guiContainer}>
+  //       <div className={style.row}>
+  //         {this.row.map((tile) => (
+  //           <div className={style.tile} key={tile}>{tile}</div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   )
+  // }
 }

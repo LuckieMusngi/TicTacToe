@@ -45,8 +45,8 @@
     align-items: flex-start;
     height: 560px;
     width: 560px;
-    /* margin: 20px; */
-    /* border-radius: 20px; */
+    margin: 20px;
+    border-radius: 30px;
 }
 
 .submitButton {
