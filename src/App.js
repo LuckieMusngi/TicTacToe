@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
+import board from "./components/Board/board"
 
 export default function App() {
   const [inputValueOne, setInputValueOne] = useState("Player One");
   const [inputValueTwo, setInputValueTwo] = useState("Player Two");
   const [playersSet, setPlayerSet] = useState(false);
   const [currentPlayer, setCurrentPlayer] = useState("X");
+  const b = new board();
 
   const handlePlayTurn = () => {
     setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
@@ -78,7 +80,7 @@ export default function App() {
       <div className={styles.card}>
         <div className={styles.showCurrentPlayer}>{showCurrentPlayer()}</div>
         <div className={styles.boardContainer}>
-          <p>Board</p>
+            {b.boardGUI()}
         </div>
       </div>
     </div>

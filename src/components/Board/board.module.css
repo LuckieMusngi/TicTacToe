@@ -1,0 +1,23 @@
+.board {
+    border-collapse: collapse;
+    height: 100%;
+}
+
+.board th {
+    display: table-cell;
+    width: 185px;
+    height: 183px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.board th:not(:last-child) {
+    border-right: 2px solid #000;
+}
+
+.board tr:not(:last-child) {
+    border-bottom: 2px solid #000;
+}

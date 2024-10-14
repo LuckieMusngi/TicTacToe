@@ -1,3 +1,5 @@
+import style from "./board.module.css";
+
 export default class board {
   constructor() {
     // this.board is ["", "", "",
@@ -9,18 +11,21 @@ export default class board {
 
   getRow(index) {
     const rowIndex = index * 3;
-    return new Array(this.boardArr[rowIndex], this.boardArr[rowIndex + 1], this.boardArr[rowIndex + 2]);
+    return new Array(
+      this.boardArr[rowIndex],
+      this.boardArr[rowIndex + 1],
+      this.boardArr[rowIndex + 2]
+    );
   }
 
   playMove(player, i) {
     if (player !== "X" && player !== "O") {
-
-    } 
+    }
 
     if (this.boardArr[i] !== " ") {
-        //* ERROR
-        console.log("index is already occupied");
-        return;
+      //* ERROR
+      console.log("index is already occupied");
+      return;
     }
     this.boardArr[i] = player;
   }
@@ -28,10 +33,10 @@ export default class board {
   // returns 0 if no winner, 1 if player 1 wins and 2 if player 2 is winning
   getWinner() {
     if (this.hasWon("X")) {
-        return 1;
+      return 1;
     }
     if (this.hasWon("O")) {
-        return 2;
+      return 2;
     }
     return 0;
   }
@@ -40,29 +45,29 @@ export default class board {
     // the index trios in which a player can win
     // a player wins if they have pieces in all 3 indexes of one of these arrays
     const winCombs = [
-        // rows
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        // columns
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        // diagonals
-        [0, 4, 8],
-        [2, 4, 6],
+      // rows
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      // columns
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      // diagonals
+      [0, 4, 8],
+      [2, 4, 6],
     ];
 
     for (const combination of winCombs) {
-        let found = true;
-        for (const i of combination) {
-            if (this.boardArr[i] !== curPlayer) {
-                found = false;
-            }
+      let found = true;
+      for (const i of combination) {
+        if (this.boardArr[i] !== curPlayer) {
+          found = false;
         }
-        if (found) {
-            return true;
-        }
+      }
+      if (found) {
+        return true;
+      }
     }
 
     return false;
@@ -71,28 +76,28 @@ export default class board {
   toString() {
     return this.boardArr.toString();
   }
-  
+
   boardGUI() {
     return (
-      <table>
+      <table className={style.board}>
         <thead>
           <tr>
-            <th>{boardArr[0]}</th>
-            <th>{boardArr[1]}</th>
-            <th>{boardArr[2]}</th>
+            <th>{this.boardArr[0]}</th>
+            <th>{this.boardArr[1]}</th>
+            <th>{this.boardArr[2]}</th>
           </tr>
           <tr>
-            <th>{boardArr[3]}</th>
-            <th>{boardArr[4]}</th>
-            <th>{boardArr[5]}</th>
+            <th>{this.boardArr[3]}</th>
+            <th>{this.boardArr[4]}</th>
+            <th>{this.boardArr[5]}</th>
           </tr>
           <tr>
-            <th>{boardArr[6]}</th>
-            <th>{boardArr[7]}</th>
-            <th>{boardArr[8]}</th>
+            <th>{this.boardArr[6]}</th>
+            <th>{this.boardArr[7]}</th>
+            <th>{this.boardArr[8]}</th>
           </tr>
         </thead>
       </table>
     );
-  };
+  }
 }
